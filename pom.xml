@@ -18,7 +18,7 @@
 
         <spotless.version>2.44.3</spotless.version>
         <spring-boot.version>3.4.4</spring-boot.version>
-        <spring-cloud.version>2024.0.0</spring-cloud.version>
+        <spring-cloud.version>2024.0.1</spring-cloud.version>
         <assertj.version>3.27.3</assertj.version>
         <mockito.version>5.16.1</mockito.version>
     </properties>
