@@ -1,3 +1,4 @@
+#spring:
 #  security:
 #    oauth2:
 #      client:
@@ -12,4 +13,3 @@
 #          azure:
 #            # https://login.microsoftonline.com/<tenant-id>/v2.0/.well-known/openid-configuration
 #            issuer-uri: https://login.microsoftonline.com/<tenant-id>/v2.0
-#
