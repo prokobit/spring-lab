@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Demo</title>
+    <script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div id="banner" class="flex items-center gap-x-6 bg-green-500 px-6 py-2.5 sm:px-1.5 sm:before:flex-1 p-8">
+        &nbsp;
+    </div>
+    <h2>Welcome</h2>
+    <div class="container">
+        <div sec:authorize="isAnonymous()">
+            <a href="/login/oauth2/authorization/azure" class="rounded-md bg-green-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 m-4"
+                type="button"
+            >Login</a>
+        </div>
+        <div sec:authorize="isAuthenticated()">
+            <button hx-post="/logout" hx-target="body"
+                    class="rounded-md bg-green-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 m-4"
+            >Logout</button>
+            <div sec:authentication="principal.claims['name']"></div>
+            <div sec:authentication="principal.claims['email']"></div>
+        </div>
+    </div>
+</body>
+</html>
