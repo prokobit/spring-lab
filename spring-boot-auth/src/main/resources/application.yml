@@ -1,0 +1,15 @@
+#spring:
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          azure:
+#            provider: azure
+#            client-id: <client-id>
+#            client-secret: <secret>
+#            scope: openid,profile
+#            redirect-uri: "{baseUrl}/login/oauth2/callback/azure"
+#        provider:
+#          azure:
+#            # https://login.microsoftonline.com/<tenant-id>/v2.0/.well-known/openid-configuration
+#            issuer-uri: https://login.microsoftonline.com/<tenant-id>/v2.0
