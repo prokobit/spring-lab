@@ -20,13 +20,13 @@ public class SecurityConfig {
     // spotless:off
     return http.csrf(AbstractHttpConfigurer::disable)
         .authorizeHttpRequests((requests) -> requests
-            .requestMatchers("/login.html", "/error", "/webjars/**").permitAll()
+            .requestMatchers("/", "/logout", "/error", "/webjars/**").permitAll()
             .anyRequest().authenticated())
 //        .exceptionHandling(e ->
 //            e.authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED))
 //        )
         .oauth2Login((login) -> login
-            .loginPage("/login.html")
+            .loginPage("/")
             .redirectionEndpoint((endpoint) -> endpoint.baseUri("/login/oauth2/callback/*"))
             .defaultSuccessUrl("/")
         )
