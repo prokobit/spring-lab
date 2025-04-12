@@ -1,13 +1,19 @@
 #spring:
 #  security:
 #    oauth2:
+#      resourceserver:
+#        jwt:
+#          issuer-uri: https://login.microsoftonline.com/<tenant-id>/v2.0 # requires: accessTokenAcceptedVersion: 2
 #      client:
 #        registration:
 #          azure:
 #            provider: azure
 #            client-id: <client-id>
 #            client-secret: <secret>
-#            scope: openid,profile
+#            scope:
+#              - openid
+#              - profile
+#              - api://demo.dev/user
 #            redirect-uri: "{baseUrl}/login/oauth2/callback/azure"
 #        provider:
 #          azure:
