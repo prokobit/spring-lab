@@ -38,7 +38,7 @@ public class CustomOAuth2SuccessHandler implements AuthenticationSuccessHandler 
         ResponseCookie.from(ACCESS_TOKEN_COOKIE_NAME, accessToken)
             .path("/")
             .httpOnly(true)
-            .secure(false) // TODO: enable tls
+            .secure(true)
             .sameSite("Strict")
             .maxAge(Duration.ofHours(1))
             .build();
