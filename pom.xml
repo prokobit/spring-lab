@@ -20,7 +20,7 @@
         <spring-boot.version>3.4.5</spring-boot.version>
         <spring-cloud.version>2024.0.1</spring-cloud.version>
         <assertj.version>3.27.3</assertj.version>
-        <mockito.version>5.16.1</mockito.version>
+        <mockito.version>5.17.0</mockito.version>
     </properties>
 
     <dependencyManagement>
