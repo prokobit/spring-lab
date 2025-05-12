@@ -12,7 +12,7 @@ spring:
       resourceserver:
         jwt:
           issuer-uri: https://login.microsoftonline.com/${AZURE_TENANT_ID}/v2.0
-          jwk-set-uri: "https://login.microsoftonline.com/b${AZURE_TENANT_ID}/discovery/v2.0/keys"
+          jwk-set-uri: "https://login.microsoftonline.com/${AZURE_TENANT_ID}/discovery/v2.0/keys"
       client:
         registration:
           azure:
