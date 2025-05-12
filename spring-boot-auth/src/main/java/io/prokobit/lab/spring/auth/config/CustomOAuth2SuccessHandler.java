@@ -2,13 +2,12 @@ package io.prokobit.lab.spring.auth.config;
 
 import static io.prokobit.lab.spring.auth.config.CookieBearerTokenResolver.BEARER_TOKEN_COOKIE_NAME;
 
-import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.Duration;
 import java.time.Instant;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseCookie;
 import org.springframework.security.core.Authentication;
@@ -19,14 +18,15 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class CustomOAuth2SuccessHandler implements AuthenticationSuccessHandler {
 
-  @Autowired private OAuth2AuthorizedClientService authorizedClientService;
+  private final OAuth2AuthorizedClientService authorizedClientService;
 
   @Override
   public void onAuthenticationSuccess(
       HttpServletRequest request, HttpServletResponse response, Authentication authentication)
-      throws IOException, ServletException {
+      throws IOException {
 
     OAuth2AuthenticationToken oauthToken = (OAuth2AuthenticationToken) authentication;
     OAuth2AuthorizedClient client =
