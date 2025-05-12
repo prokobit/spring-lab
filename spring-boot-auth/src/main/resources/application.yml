@@ -1,0 +1,28 @@
+server:
+  port: 8443
+  ssl:
+    enabled: true
+    key-store-type: PKCS12
+    key-store: classpath:keystore.p12
+    key-store-password: changeit
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://login.microsoftonline.com/${AZURE_TENANT_ID}/v2.0
+          jwk-set-uri: "https://login.microsoftonline.com/b${AZURE_TENANT_ID}/discovery/v2.0/keys"
+      client:
+        registration:
+          azure:
+            client-id: ${AZURE_CLIENT_ID}
+            client-secret: ${AZURE_CLIENT_SECRET}
+            scope:
+              - openid
+              - profile
+              - api://demo/user # Validate tokens works if access token contains one of AppId URIs as the aud claim
+        provider:
+          azure:
+            issuer-uri: https://login.microsoftonline.com/${AZURE_TENANT_ID}/v2.0
+            # https://login.microsoftonline.com/<tenant-id>/v2.0/.well-known/openid-configuration
