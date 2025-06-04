@@ -19,7 +19,7 @@
   <configuration default="false" name="SpringBootAuthApplication" type="Application" factoryName="Application" nameIsGenerated="true">
     <option name="MAIN_CLASS_NAME" value="io.prokobit.lab.spring.auth.SpringBootAuthApplication" />
     <module name="spring-boot-auth" />
-    <option name="PROGRAM_PARAMETERS" value="--spring.profiles.active=local,secret" />
+    <option name="PROGRAM_PARAMETERS" value="--spring.profiles.active=local" />
     <selectedOptions>
       <option name="environmentVariables" visible="false" />
     </selectedOptions>
